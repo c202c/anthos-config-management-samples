@@ -19,3 +19,10 @@ spec:
         image: nginx:1.14.2
         ports:
         - containerPort: 80
+        readinessProbe:
+          exec:
+            command:
+            - cat
+            - /tmp/healthy
+          initialDelaySeconds: 15
+          periodSeconds: 10
