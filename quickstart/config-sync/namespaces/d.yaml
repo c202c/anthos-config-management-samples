@@ -22,7 +22,7 @@ spec:
         readinessProbe:
           exec:
             command:
-            - cat
+            - touch
             - /tmp/healthy
           initialDelaySeconds: 15
           periodSeconds: 10
