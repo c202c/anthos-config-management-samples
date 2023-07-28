@@ -1,0 +1,35 @@
+kind: Deployment
+apiVersion: apps/v1
+metadata:
+  name: testapp-bar
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: testapp-bar
+  template:
+    metadata:
+      labels:
+        app: testapp-bar
+    spec:
+      containers:
+      - name: testapp-bar
+        livenessProbe:
+          httpGet:
+            path: /liveness-probe
+            port: 8080
+          initialDelaySeconds: 5
+          periodSeconds: 15
+        image: gcr.io/google_containers/echoserver:1.7
+        resources:
+          limits:
+            memory: 512Mi
+          requests:
+            memory: 512Mi
+        ports:
+        - name: http-port
+          containerPort: 8080
+          protocol: TCP
+        - name: https-port
+          containerPort: 443
+          protocol: TCP
