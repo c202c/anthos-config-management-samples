@@ -20,6 +20,7 @@ spec:
             port: 8080
           initialDelaySeconds: 15
           failureThreshold: 10
+          enabled: false
         livenessProbe:
           httpGet:
             path: /liveness-probe
