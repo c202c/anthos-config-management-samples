@@ -14,7 +14,8 @@ spec:
     spec:
       containers:
       - name: testapp
-        readinessProbe: null
+        readinessProbe:
+          enabled: false
         livenessProbe:
           httpGet:
             path: /liveness-probe
