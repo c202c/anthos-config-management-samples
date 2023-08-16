@@ -15,11 +15,6 @@ spec:
       containers:
       - name: testapp
         readinessProbe:
-          httpGet:
-            path: /readiness-probe
-            port: 8080
-          initialDelaySeconds: 15
-          failureThreshold: 10
           enabled: false
         livenessProbe:
           httpGet:
